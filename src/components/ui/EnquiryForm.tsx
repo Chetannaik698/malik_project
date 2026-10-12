@@ -3,14 +3,15 @@ import { CheckCircle2 } from 'lucide-react'
 import { submitEnquiry, type EnquiryPayload } from '../../lib/api'
 import { Button } from './Button'
 const TYPES = [
-  'Laptops & Desktops Enquiry',
-  'Quick Repair & Service',
-  'CCTV Security Solutions',
-  'Printers & Consumables',
-  'Networking Products',
-  'Software & Antivirus Licensing',
-  'Accessories & Components',
-  'Price Quotation / Bulk Order',
+  'Laptop Motherboard & Chip-Level Repair',
+  'Laptop Display / Screen Replacement',
+  'Laptop Not Charging / Battery Fix',
+  'CCTV Camera Installation & DVR/NVR',
+  'Custom Gaming PC / Workstation Build',
+  'Desktop & All-in-One PC Purchase',
+  'RAM Expansion / High-Speed SSD Upgrade',
+  'Printer Servicing & Toner Refilling',
+  'Accessories & Bulk Price Quotation',
 ]
 const field = 'mt-1.5 w-full rounded-xl border border-white/15 bg-ink px-4 py-3 text-sm text-white placeholder:text-white/35'
 export function EnquiryForm({ subject, id }: { subject?: string; id: string }) {
@@ -31,8 +32,8 @@ export function EnquiryForm({ subject, id }: { subject?: string; id: string }) {
   if (state === 'done') return (
     <div role="status" className="rounded-2xl border border-ember/40 bg-ember/10 p-6">
       <CheckCircle2 className="text-ember" aria-hidden />
-      <p className="mt-3 font-display text-lg text-white">Enquiry captured (demo)</p>
-      <p className="mt-2 text-sm text-white/70">Nothing was sent. Delivering real messages needs backend integration, which comes in the next milestone.</p>
+      <p className="mt-3 font-display text-lg text-white">Enquiry Received!</p>
+      <p className="mt-2 text-sm text-white/70">Thank you! Our technical team at Malik Infotech will contact you shortly. For immediate assistance, feel free to call +91 90350 36854 or WhatsApp us at +91 78298 11253.</p>
     </div>
   )
   const E = ({ m, i }: { m?: string; i: string }) => m ? <p id={i} className="mt-1 text-xs text-red-300">{m}</p> : null
