@@ -2,8 +2,10 @@ import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { EnquiryForm } from './EnquiryForm'
+import { useTheme } from '../../lib/theme'
 import logoImg from '../../images/logo.png'
 export function EnquiryModal({ open, subject, onClose }: { open: boolean; subject?: string; onClose: () => void }) {
+  const { theme } = useTheme()
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!open) return
@@ -29,7 +31,14 @@ export function EnquiryModal({ open, subject, onClose }: { open: boolean; subjec
           <motion.div ref={ref} role="dialog" aria-modal="true" aria-labelledby="enq-title" className="max-h-[92vh] w-full max-w-md overflow-y-auto rounded-3xl border border-white/10 bg-graphite p-6" initial={{ y: 24, scale: 0.97 }} animate={{ y: 0, scale: 1 }} exit={{ y: 12, opacity: 0 }}>
             <div className="mb-5 flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <img src={logoImg} alt="Renuka Computers" className="h-10 w-auto object-contain" />
+                <img
+                  src={logoImg}
+                  alt="Malik Infotech"
+                  className="theme-logo h-11 w-auto max-w-[44px] shrink-0 object-contain"
+                  style={{ filter: theme === 'dark' ? 'invert(1)' : 'invert(0)' }}
+                  width="44"
+                  height="44"
+                />
                 <div><h2 id="enq-title" className="font-display text-xl text-white">Send an enquiry</h2>{subject && <p className="mt-1 text-sm text-white/60">About: {subject}</p>}</div>
               </div>
               <button onClick={onClose} aria-label="Close enquiry form" className="grid h-11 w-11 place-items-center rounded-full hover:bg-white/10"><X size={20} /></button>

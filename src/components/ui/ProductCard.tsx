@@ -43,19 +43,22 @@ export function ProductCard({ p, onEnquire }: { p: Product; onEnquire: (s: strin
           {p.name}
         </h3>
 
-        {/* Star Ratings */}
-        <div className="mt-2.5 flex items-center gap-1.5">
-          <div className="flex text-amber-400">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                size={14}
-                className={star <= Math.floor(rating) ? 'fill-amber-400 text-amber-400' : star - rating < 1 ? 'fill-amber-400/50 text-amber-400' : 'text-white/20'}
-              />
-            ))}
+        {/* Star Rating Badge / Pill */}
+        {p.rating ? (
+          <div className="mt-2.5 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 rounded bg-[#2e7d32] px-2 py-0.5 text-xs font-bold text-white shadow-sm">
+              <span>{p.rating.toFixed(1)}</span>
+              <Star size={11} className="fill-white text-white" />
+            </span>
+            {p.ratingsCount ? (
+              <span className="text-xs text-white/60 font-medium">{p.ratingsCount} Ratings</span>
+            ) : null}
           </div>
-          <span className="text-xs text-white/50">{count} Ratings</span>
-        </div>
+        ) : (
+          <div className="mt-2.5 flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+            <span>Verified Best Deal</span>
+          </div>
+        )}
 
         {/* Specs */}
         <ul className="mt-3 flex flex-wrap gap-1.5">
