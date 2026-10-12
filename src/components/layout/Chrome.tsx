@@ -8,20 +8,18 @@ import { useTheme } from '../../lib/theme'
 import logoImg from '../../images/logo.png'
 
 export function Logo() {
-  const { theme } = useTheme()
   return (
     <a href="#home" className="group flex items-center gap-3 text-white" aria-label={`${BUSINESS.name} home`}>
       <img
         src={logoImg}
         alt={`${BUSINESS.name} logo`}
-        className="theme-logo h-11 w-auto max-w-[44px] shrink-0 object-contain transition-transform duration-200 group-hover:scale-105"
-        style={{ filter: theme === 'dark' ? 'invert(1)' : 'invert(0)' }}
-        width="44"
-        height="44"
+        className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+        width="40"
+        height="40"
       />
       <span className="font-display leading-none">
-        <span className="block text-base font-semibold tracking-tight transition-colors group-hover:text-ember">{BUSINESS.name}</span>
-        <span className="block pt-1 text-[11px] text-white/50">Laptop &amp; PC Care • S.P. Road</span>
+        <span className="block text-base font-semibold transition-colors group-hover:text-ember">Renuka Computers</span>
+        <span className="block pt-1 text-[11px] text-white/50">Inc, S.P. Road</span>
       </span>
     </a>
   )
@@ -44,16 +42,9 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
 
 export const AnnouncementBar = () => (
   <div className="bg-steel px-4 py-2 text-center text-xs text-white/80">
-    <span className="inline-flex items-center gap-1 font-semibold text-amber-400">
-      ★ 4.7 Rated on Justdial
-    </span>{' '}
-    • <span className="font-semibold text-ember">{BUSINESS.name}</span> • Laptop Repair &amp; Computer Services • Call:{' '}
+    <span className="font-semibold text-ember">{BUSINESS.pitch}</span> • Sales • Service • Support • For Enquiries Call:{' '}
     <a href={`tel:${BUSINESS.phone}`} className="font-semibold text-white underline hover:text-ember">
       {BUSINESS.phoneFormatted}
-    </a>{' '}
-    • WhatsApp:{' '}
-    <a href={`https://wa.me/${BUSINESS.whatsapp}`} target="_blank" rel="noreferrer" className="font-semibold text-emerald-400 underline hover:text-emerald-300">
-      {BUSINESS.whatsappFormatted}
     </a>
   </div>
 )
@@ -162,25 +153,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
           <Logo />
-          <div className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-300">
-            <span>★ 4.7 on Justdial</span>
-            <span className="text-white/40">•</span>
-            <span>133+ Reviews</span>
-          </div>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-ember">{BUSINESS.tagline}</p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ember">{BUSINESS.tagline}</p>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/60">
-            Complete laptop repair &amp; computer service center on S.P. Road, Bengaluru. Chip-level motherboard fixes, CCTV solutions, gaming PCs, printers, and accessories.
+            All your computer needs under one roof. Sales, service, and support for laptops, desktops, printers, CCTV,
+            components and consumables on S.P. Road, Bengaluru.
           </p>
-          {BUSINESS.justdialUrl && (
-            <a
-              href={BUSINESS.justdialUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 hover:underline"
-            >
-              <span>View Verified Justdial Listing →</span>
-            </a>
-          )}
         </div>
         <div>
           <h3 className="font-display text-white">Explore</h3>
@@ -195,7 +172,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="font-display text-white">Products &amp; Services</h3>
+          <h3 className="font-display text-white">Products & Services</h3>
           <ul className={`${col} mt-4`}>
             {categories.slice(0, 6).map((c) => (
               <li key={c.id}>
@@ -222,12 +199,9 @@ export function Footer() {
                 className="inline-flex items-center gap-2 text-white/80 hover:text-emerald-400"
               >
                 <MessageCircle size={15} className="text-emerald-400" />
-                <span>WhatsApp: {BUSINESS.whatsappFormatted}</span>
+                <span>WhatsApp Enquiry</span>
               </a>
             )}
-            <a href={`mailto:${BUSINESS.email}`} className="text-xs text-white/60 hover:text-ember">
-              Email: {BUSINESS.email}
-            </a>
             <a
               href={mapsUrl}
               target="_blank"
@@ -241,7 +215,7 @@ export function Footer() {
         </div>
       </div>
       <p className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} {BUSINESS.name} • {BUSINESS.shortAddress}. All Rights Reserved.
+        © {new Date().getFullYear()} {BUSINESS.name} • No 6, Electronics Plaza, S.P. Road, Bangalore-02. All Rights Reserved.
       </p>
     </footer>
   )

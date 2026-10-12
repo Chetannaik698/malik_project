@@ -152,19 +152,3 @@ html.light .from-ember.to-orange-700 span,
 html.light .from-ember.to-orange-700 button {
   color: #0a0a0b !important;
 }
-
-/* Theme Adaptive Logo (No background or borders; White in Dark mode, Black in Light mode) */
-.theme-logo {
-  transition: filter 0.25s ease, transform 0.2s ease;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-html.dark .theme-logo {
-  filter: invert(1) brightness(1.05);
-}
-
-html.light .theme-logo {
-  filter: invert(0);
-}
